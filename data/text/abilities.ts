@@ -209,7 +209,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	corrosion: {
 		name: "Corrosion",
-		shortDesc: "This Pokemon can poison or badly poison other Pokemon regardless of their typing.",
+		shortDesc: "This Pokemon ignores the Steel-type immunity to Poison.",
 	},
 	cottondown: {
 		name: "Cotton Down",
