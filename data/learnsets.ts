@@ -1112,6 +1112,12 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			uturn: ["8M", "8V", "7M", "6M", "5M", "4M"],
 			venoshock: ["8M", "7M", "6M", "5M"],
 			whirlwind: ["8L20", "8V", "7L29", "7V", "6L22", "5L22", "4L22", "3L23"],
+			
+			// new moves
+			reflect: ["8M"],
+			lightscreen: ["8M"],
+			psyshock: ["8M"],
+			thunderwave: ["8M"],
 		},
 		eventData: [
 			{generation: 3, level: 30, moves: ["morningsun", "psychic", "sleeppowder", "aerialace"]},
@@ -1456,6 +1462,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			whirlwind: ["8V", "7L17", "7V", "6L17", "5L17", "5S0", "4L17", "3L20"],
 			wingattack: ["8V", "7L38", "7V", "6L38", "5L38", "5S0", "4L38", "3L27"],
 			workup: ["7M", "5M"],
+			
+			// new moves
+			discharge: ["8M"],
+			focusblast: ["8M"],
+			calmmind: ["8M"],
 		},
 		eventData: [
 			{generation: 5, level: 61, gender: "M", nature: "Naughty", ivs: {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 30}, abilities: ["keeneye"], moves: ["whirlwind", "wingattack", "skyattack", "mirrormove"], pokeball: "cherishball"},

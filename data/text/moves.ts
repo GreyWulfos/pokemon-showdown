@@ -5766,8 +5766,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	stoneedge: {
 		name: "Stone Edge",
-		desc: "Has a higher chance for a critical hit.",
-		shortDesc: "High critical hit ratio.",
+		desc: "Has a higher chance for a critical hit. Cannot miss while in sand.",
+		shortDesc: "High critical hit ratio. Can't miss in sand.",
 	},
 	storedpower: {
 		name: "Stored Power",

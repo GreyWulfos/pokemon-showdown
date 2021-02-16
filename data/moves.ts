@@ -16876,6 +16876,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onModifyMove(move) {
+			if (this.field.isWeather('sandstorm')) move.accuracy = true;
+		},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",

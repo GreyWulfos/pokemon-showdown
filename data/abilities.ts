@@ -39,6 +39,32 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0.1,
 		num: 0,
 	},
+	
+	// New abilities implemented here
+	
+	daunt: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Daunt', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Daunt",
+		rating: 3.5,
+		num: 22,
+	},
+	
+	// End of new abilities
+	
 	adaptability: {
 		onModifyMove(move) {
 			move.stab = 2;
@@ -1189,10 +1215,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	galewings: {
 		onModifyPriority(priority, pokemon, target, move) {
-			if (move?.type === 'Flying' && pokemon.hp === pokemon.maxhp) return priority + 1;
+			if (move?.type === 'Flying') return priority + 1;
 		},
 		name: "Gale Wings",
-		rating: 3,
+		rating: 4,
 		num: 177,
 	},
 	galvanize: {

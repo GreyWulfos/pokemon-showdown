@@ -32,12 +32,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		onBeforeMovePriority: 1,
-		onBeforeMove(pokemon) {
-			if (this.randomChance(1, 4)) {
-				this.add('cant', pokemon, 'par');
-				return false;
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && this.effectData.target === source) {
+				return true;
 			}
+			return accuracy;
 		},
 	},
 	slp: {
@@ -85,26 +84,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 				target.formeChange('Shaymin', this.effect, true);
 			}
 		},
-		onBeforeMovePriority: 10,
-		onBeforeMove(pokemon, target, move) {
-			if (move.flags['defrost']) return;
-			if (this.randomChance(1, 5)) {
-				pokemon.cureStatus();
-				return;
-			}
-			this.add('cant', pokemon, 'frz');
-			return false;
-		},
-		onModifyMove(move, pokemon) {
-			if (move.flags['defrost']) {
-				this.add('-curestatus', pokemon, 'frz', '[from] move: ' + move);
-				pokemon.setStatus('');
-			}
-		},
-		onHit(target, source, move) {
-			if (move.thawsTarget || move.type === 'Fire' && move.category !== 'Status') {
-				target.cureStatus();
-			}
+		// damage reduction also handled in sim/battle.js
+		onResidualOrder: 9,
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 16);
 		},
 	},
 	psn: {
@@ -627,6 +610,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return 8;
 			}
 			return 5;
+		},
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (defender.hasItem('utilityumbrella')) return;
+			if (move.type === 'Ice') {
+				this.debug('hail ice boost');
+				return this.chainModify(1.5);
+			}
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
