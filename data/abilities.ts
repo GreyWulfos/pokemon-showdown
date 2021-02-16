@@ -3117,7 +3117,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.effectiveWeather() === 'sandstorm') {
 				return this.chainModify(3 / 2)
 			}
-		}
+		},
 		name: "Sand Veil",
 		rating: 1.5,
 		num: 8,
