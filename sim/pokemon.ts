@@ -1483,7 +1483,7 @@ export class Pokemon {
 		}
 
 		if (!ignoreImmunities && status.id) {
-			// the game currently never ignores immunities
+			// the game currently never ignores immunities -- except that it do
 			if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
 				this.battle.debug('immune to status');
 				if ((sourceEffect as Move)?.status) {

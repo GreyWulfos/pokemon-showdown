@@ -1,4 +1,20 @@
 export const AbilitiesText: {[k: string]: AbilityText} = {
+	// new abilities start
+
+	daunt: {
+		name: "Daunt",
+		desc: "This Pokemon lowers the special attack of all opposing Pokemon by 1 stage upon switch-in.",
+		shortDesc: "Lowers opponent's SpA by 1 stage on switch-in.",
+	},
+	easypickings: {
+		name: "Easy Pickings",
+		shortDesc: "Restores 1/12 of Max HP after each turn.",
+		
+		heal: "  [POKEMON] recovered with its Easy Pickings!",
+	},
+	
+	// new abilities end
+	
 	noability: {
 		name: "No Ability",
 		shortDesc: "Does nothing.",

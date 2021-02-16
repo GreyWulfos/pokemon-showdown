@@ -418,12 +418,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 	raindance: {
 		name: 'RainDance',
 		effectType: 'Weather',
-		duration: 5,
+		duration: 7,
 		durationCallback(source, effect) {
 			if (source?.hasItem('damprock')) {
-				return 8;
+				return 10;
 			}
-			return 5;
+			return 7;
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;
@@ -488,12 +488,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 	sunnyday: {
 		name: 'SunnyDay',
 		effectType: 'Weather',
-		duration: 5,
+		duration: 7,
 		durationCallback(source, effect) {
 			if (source?.hasItem('heatrock')) {
-				return 8;
+				return 10;
 			}
-			return 5;
+			return 7;
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;
@@ -566,12 +566,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 	sandstorm: {
 		name: 'Sandstorm',
 		effectType: 'Weather',
-		duration: 5,
+		duration: 7,
 		durationCallback(source, effect) {
 			if (source?.hasItem('smoothrock')) {
-				return 8;
+				return 10;
 			}
-			return 5;
+			return 7;
 		},
 		// This should be applied directly to the stat before any of the other modifiers are chained
 		// So we give it increased priority.
@@ -604,12 +604,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 	hail: {
 		name: 'Hail',
 		effectType: 'Weather',
-		duration: 5,
+		duration: 7,
 		durationCallback(source, effect) {
 			if (source?.hasItem('icyrock')) {
-				return 8;
+				return 10;
 			}
-			return 5;
+			return 7;
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;

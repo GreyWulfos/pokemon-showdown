@@ -962,9 +962,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	barrage: {
 		num: 140,
-		accuracy: 85,
-		basePower: 15,
-		category: "Physical",
+		accuracy: 90,
+		basePower: 30,
+		category: "Special",
 		isNonstandard: "Past",
 		name: "Barrage",
 		pp: 20,
@@ -973,7 +973,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		multihit: [2, 5],
 		secondary: null,
 		target: "normal",
-		type: "Normal",
+		type: "Grass",
 		contestType: "Cute",
 	},
 	barrier: {
@@ -3676,7 +3676,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	dragonhammer: {
 		num: 692,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 110,
 		category: "Physical",
 		name: "Dragon Hammer",
 		pp: 15,
@@ -4449,12 +4449,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 	explosion: {
 		num: 153,
 		accuracy: 100,
-		basePower: 250,
+		basePower: 500,
 		category: "Physical",
 		name: "Explosion",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
 		selfdestruct: "always",
 		secondary: null,
 		target: "allAdjacent",

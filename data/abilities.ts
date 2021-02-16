@@ -60,7 +60,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Daunt",
 		rating: 3.5,
-		num: 22,
+		num: 300,
+	},
+	
+	easypickings: {
+		onResidualOrder: 5,
+		onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 12);
+		},
+		name: "Easy Pickings",
+		rating: 4,
+		num: 301
 	},
 	
 	// End of new abilities
