@@ -536,7 +536,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 126,
 	},
 	corrosion: {
-		// Implemented in sim/pokemon.js:Pokemon#setStatus
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
 		name: "Corrosion",
 		rating: 2.5,
 		num: 212,
@@ -3106,14 +3112,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
-		onModifyAccuracyPriority: -1,
-		onModifyAccuracy(accuracy) {
-			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather('sandstorm')) {
-				this.debug('Sand Veil - decreasing accuracy');
-				return this.chainModify([3277, 4096]);
+		onModifyDefPriority: -1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.effectiveWeather() === 'sandstorm') {
+				return this.chainModify(3 / 2)
 			}
-		},
+		}
 		name: "Sand Veil",
 		rating: 1.5,
 		num: 8,
@@ -3430,12 +3434,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		onModifyAccuracyPriority: -1,
-		onModifyAccuracy(accuracy) {
-			if (typeof accuracy !== 'number') return;
+		onModifySpDPriority: -1,
+		onModifySpD(spd) {
 			if (this.field.isWeather('hail')) {
-				this.debug('Snow Cloak - decreasing accuracy');
-				return this.chainModify([3277, 4096]);
+				this.debug('Snow Cloak - increasing defence');
+				return this.chainModify(3 / 2);
 			}
 		},
 		name: "Snow Cloak",
