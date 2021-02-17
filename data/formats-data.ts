@@ -149,7 +149,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	raticatealolatotem: {
 		
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	spearow: {
 		
@@ -867,7 +867,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	marowakalolatotem: {
 		
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	tyrogue: {
 		tier: "LC",
@@ -1375,12 +1375,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUber",
 	},
 	mewtwomegax: {
-		
-		tier: "(PU)",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	mewtwomegay: {
-		
-		tier: "(PU)",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	mew: {
 		randomBattleMoves: ["bravebird", "closecombat", "dragondance", "flareblitz", "psychicfangs", "swordsdance"],
@@ -2667,8 +2667,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUber",
 	},
 	kyogreprimal: {
-		
-		tier: "(PU)",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	groudon: {
 		randomBattleMoves: ["earthquake", "heatcrash", "heavyslam", "stealthrock", "stoneedge", "swordsdance", "thunderwave"],
@@ -2679,8 +2679,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUber",
 	},
 	groudonprimal: {
-		
-		tier: "(PU)",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	rayquaza: {
 		randomBattleMoves: ["dracometeor", "dragonascent", "extremespeed", "swordsdance", "vcreate"],
@@ -2704,19 +2704,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	deoxys: {
 		
-		tier: "(PU)",
+		tier: "Uber",
 	},
 	deoxysattack: {
 		
-		tier: "(PU)",
+		tier: "Uber",
 	},
 	deoxysdefense: {
 		
-		tier: "(PU)",
+		tier: "Uber",
 	},
 	deoxysspeed: {
 		
-		tier: "(PU)",
+		tier: "Uber",
 	},
 	turtwig: {
 		
@@ -3143,7 +3143,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["bodyslam", "knockoff", "protect", "thunderwave"],
 		randomDoubleBattleLevel: 86,
-		tier: "(PU)",
+		tier: "Uber",
 		doublesTier: "(DUU)",
 	},
 	giratina: {
@@ -3180,7 +3180,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	darkrai: {
 		
-		tier: "(PU)",
+		tier: "Uber",
 	},
 	shaymin: {
 		
@@ -3188,62 +3188,61 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	shayminsky: {
 		
-		tier: "(PU)",
+		tier: "Uber",
 	},
 	arceus: {
-		
-		tier: "(PU)",
+		tier: "Uber",
 	},
 	arceusbug: {
-		
+		tier: "Uber",
 	},
 	arceusdark: {
-		
+		tier: "Uber",
 	},
 	arceusdragon: {
-		
+		tier: "Uber",
 	},
 	arceuselectric: {
-		
+		tier: "Uber",
 	},
 	arceusfairy: {
-		
+		tier: "Uber",
 	},
 	arceusfighting: {
-		
+		tier: "Uber",
 	},
 	arceusfire: {
-		
+		tier: "Uber",
 	},
 	arceusflying: {
-		
+		tier: "Uber",
 	},
 	arceusghost: {
-		
+		tier: "Uber",
 	},
 	arceusgrass: {
-		
+		tier: "Uber",
 	},
 	arceusground: {
-		
+		tier: "Uber",
 	},
 	arceusice: {
-		
+		tier: "Uber",
 	},
 	arceuspoison: {
-		
+		tier: "Uber",
 	},
 	arceuspsychic: {
-		
+		tier: "Uber",
 	},
 	arceusrock: {
-		
+		tier: "Uber",
 	},
 	arceussteel: {
-		
+		tier: "Uber",
 	},
 	arceuswater: {
-		
+		tier: "Uber",
 	},
 	victini: {
 		randomBattleMoves: ["boltstrike", "trick", "uturn", "vcreate", "zenheadbutt"],
@@ -4722,7 +4721,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	gumshoostotem: {
 		
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	grubbin: {
 		tier: "LC",
@@ -4740,7 +4739,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	vikavolttotem: {
 		
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	crabrawler: {
 		
@@ -4779,7 +4778,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	ribombeetotem: {
 		
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	rockruff: {
 		tier: "LC",
@@ -4856,7 +4855,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	araquanidtotem: {
 		
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	fomantis: {
 		tier: "LC",
@@ -4871,7 +4870,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	lurantistotem: {
 		
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	morelull: {
 		tier: "LC",
@@ -4897,7 +4896,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	salazzletotem: {
 		
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	stufful: {
 		tier: "LC",
@@ -5156,7 +5155,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	togedemarutotem: {
 		
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	mimikyu: {
 		randomBattleMoves: ["drainpunch", "playrough", "shadowclaw", "shadowsneak", "swordsdance"],
@@ -5168,11 +5167,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	mimikyutotem: {
 		
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	mimikyubustedtotem: {
 		
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	bruxish: {
 		
@@ -5210,7 +5209,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	kommoototem: {
 		
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	tapukoko: {
 		randomBattleMoves: ["calmmind", "dazzlinggleam", "grassknot", "substitute", "thunderbolt", "voltswitch"],
@@ -5348,7 +5347,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	necrozmaultra: {
 		
-		tier: "(PU)",
+		tier: "Uber",
 	},
 	magearna: {
 		randomBattleMoves: ["agility", "calmmind", "flashcannon", "fleurcannon", "focusblast", "voltswitch"],
@@ -6345,78 +6344,78 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	pokestarsmeargle: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarufo: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarufo2: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarbrycenman: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarmt: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarmt2: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestartransport: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestargiant: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestargiant2: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarhumanoid: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarmonster: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarf00: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarf002: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarspirit: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarblackdoor: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarwhitedoor: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarblackbelt: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestargiantpropo2: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	pokestarufopropu2: {
 		isNonstandard: "Custom",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 };

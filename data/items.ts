@@ -5497,11 +5497,11 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			if (['Cubone', 'Cubone-Alola', 'Marowak', 'Marowak-Alola'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (pokemon.baseSpecies.num === 104 || pokemon.baseSpecies.num === 105) {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Marowak", "Cubone"],
+		itemUser: ["Marowak", "Marowak-Alola", "Cubone", "Cubone-Alola"],
 		num: 258,
 		gen: 2,
 	},

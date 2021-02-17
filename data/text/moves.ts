@@ -70,7 +70,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	aerialace: {
 		name: "Aerial Ace",
-		shortDesc: "This move does not check accuracy.",
+		desc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 	aeroblast: {
 		name: "Aeroblast",
@@ -6292,8 +6293,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	thundershock: {
 		name: "Thunder Shock",
-		desc: "Has a 10% chance to paralyze the target.",
-		shortDesc: "10% chance to paralyze the target.",
+		desc: "No additional effect.",
+		shortDesc: "Usually moves first.",
 	},
 	thunderwave: {
 		name: "Thunder Wave",
