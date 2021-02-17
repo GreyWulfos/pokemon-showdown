@@ -663,7 +663,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	justified: {
 		name: "Justified",
-		shortDesc: "This Pokemon's Attack is raised by 1 stage after it is damaged by a Dark-type move.",
+		desc: "This Pokemon is immune to Dark-type moves and raises its Attack by 1 stage when hit by an Dark-type move.",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by an Dark move; Dark immunity.",
 	},
 	keeneye: {
 		name: "Keen Eye",

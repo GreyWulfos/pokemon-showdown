@@ -471,7 +471,8 @@ export const Scripts: BattleScriptsData = {
 				}
 			}
 			if (move.alwaysHit || (move.id === 'toxic' && this.gen >= 8 && pokemon.hasType('Poison')) ||
-					(move.target === 'self' && move.category === 'Status' && !target.isSemiInvulnerable())) {
+					(move.target === 'self' && move.category === 'Status' && !target.isSemiInvulnerable()) ||
+					(target.status === 'par')) {
 				accuracy = true; // bypasses ohko accuracy modifiers
 			} else {
 				accuracy = this.runEvent('Accuracy', target, pokemon, move, accuracy);

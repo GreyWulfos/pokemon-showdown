@@ -37,12 +37,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	charizardmegax: {
-		
-		tier: "(PU)",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	charizardmegay: {
-		
-		tier: "(PU)",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	charizardgmax: {
 		randomDoubleBattleMoves: ["airslash", "fireblast", "focusblast", "heatwave", "protect", "tailwind"],

@@ -1513,7 +1513,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	icebody: {
 		onWeather(target, source, effect) {
 			if (effect.id === 'hail') {
-				this.heal(target.baseMaxhp / 16);
+				this.heal(target.baseMaxhp / 8);
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -1763,9 +1763,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 89,
 	},
 	justified: {
-		onDamagingHit(damage, target, source, move) {
-			if (move.type === 'Dark') {
-				this.boost({atk: 1});
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Dark') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Justified');
+				}
+				return null;
 			}
 		},
 		name: "Justified",
@@ -2906,7 +2909,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
-				this.heal(target.baseMaxhp / 16);
+				this.heal(target.baseMaxhp / 8);
 			}
 		},
 		name: "Rain Dish",

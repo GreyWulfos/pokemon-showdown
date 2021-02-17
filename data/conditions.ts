@@ -32,12 +32,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && this.effectData.target === source) {
-				return true;
-			}
-			return accuracy;
-		},
+		
+		// accuracy check bypass implemented in data/scripts.ts
 	},
 	slp: {
 		name: 'slp',
