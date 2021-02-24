@@ -35,6 +35,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
+		name: "Sloth Smash",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, mirror: 1},

@@ -22,7 +22,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 8,
 	},
 	frostorb: {
-		name: "Flame Orb",
+		name: "Frost Orb",
 		spritenum: 4,
 		fling: {
 			basePower: 30,
