@@ -4046,11 +4046,20 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBeforeMove(pokemon) {
 			if (pokemon.removeVolatile('truant')) {
 				this.add('cant', pokemon, 'ability: Truant');
-				return false;
+				pokemon.addVolatile('truant');
+			} else {
+				pokemon.addVolatile('truant');
 			}
-			pokemon.addVolatile('truant');
 		},
-		condition: {},
+		condition: {
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.getMove(moveSlot.move).category !== 'Status') {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+		},
 		name: "Truant",
 		rating: -1,
 		num: 54,
