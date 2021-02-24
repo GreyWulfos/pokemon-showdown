@@ -1,4 +1,19 @@
 export const MovesText: {[k: string]: MoveText} = {
+	// new moves
+	
+	slothsmash: {
+		name: "Sloth Smash",
+		desc: "If this move is successful, it breaks through the target's Baneful Bunker, Detect, King's Shield, Protect, or Spiky Shield for this turn, allowing other Pokemon to attack the target normally. If the target's side is protected by Crafty Shield, Mat Block, Quick Guard, or Wide Guard, that protection is also broken for this turn and other Pokemon may attack the target's side normally.",
+		shortDesc: "Breaks protection.",
+	},
+	frostbite: {
+		name: "Frostbite",
+		desc: "Freezes the target.",
+		shortDesc: "Freezes the target.",
+	},
+	
+	// end of new moves
+	
 	"10000000voltthunderbolt": {
 		name: "10,000,000 Volt Thunderbolt",
 		desc: "Has a very high chance for a critical hit.",
@@ -97,8 +112,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	airslash: {
 		name: "Air Slash",
-		desc: "Has a 30% chance to make the target flinch.",
-		shortDesc: "30% chance to make the target flinch.",
+		desc: "Has a 30% chance to lower target's special defence by 1 stage.",
+		shortDesc: "30% chance to inflict SpD -1.",
 	},
 	alloutpummeling: {
 		name: "All-Out Pummeling",
@@ -147,8 +162,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	aquaring: {
 		name: "Aqua Ring",
-		desc: "The user has 1/16 of its maximum HP, rounded down, restored at the end of each turn while it remains active. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. If the user uses Baton Pass, the replacement will receive the healing effect.",
-		shortDesc: "User recovers 1/16 max HP per turn.",
+		desc: "The user has 1/8 of its maximum HP, rounded down, restored at the end of each turn while it remains active. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. If the user uses Baton Pass, the replacement will receive the healing effect.",
+		shortDesc: "User recovers 1/8 max HP per turn.",
 
 		start: "  [POKEMON] surrounded itself with a veil of water!",
 		heal: "  A veil of water restored [POKEMON]'s HP!",
@@ -432,8 +447,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	bite: {
 		name: "Bite",
-		desc: "Has a 30% chance to make the target flinch.",
-		shortDesc: "30% chance to make the target flinch.",
+		desc: "Has a 30% chance to lower target's defence by 2 stages.",
+		shortDesc: "30% chance to inflict Def -2.",
 		gen1: {
 			desc: "Has a 10% chance to make the target flinch.",
 			shortDesc: "10% chance to make the target flinch.",
@@ -1013,8 +1028,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	crabhammer: {
 		name: "Crabhammer",
-		desc: "Has a higher chance for a critical hit.",
-		shortDesc: "High critical hit ratio.",
+		desc: "Has a higher chance for a critical hit. Has a 10% chance to lower the target Pokemon's defence.",
+		shortDesc: "High critical hit ratio. 10% chance to inflict Def -1.",
 	},
 	craftyshield: {
 		name: "Crafty Shield",
@@ -1081,8 +1096,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	darkpulse: {
 		name: "Dark Pulse",
-		desc: "Has a 20% chance to make the target flinch.",
-		shortDesc: "20% chance to make the target flinch.",
+		desc: "Has a 20% chance to confuse the target.",
+		shortDesc: "20% chance to inflict confusion.",
 	},
 	darkvoid: {
 		name: "Dark Void",
@@ -1306,8 +1321,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	doubleironbash: {
 		name: "Double Iron Bash",
-		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. Has a 30% chance to make the target flinch.",
-		shortDesc: "Hits twice. 30% chance to make the target flinch.",
+		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
+		shortDesc: "Hits twice.",
 	},
 	doublekick: {
 		name: "Double Kick",
@@ -1522,7 +1537,7 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	electroball: {
 		name: "Electro Ball",
-		desc: "The power of this move depends on (user's current Speed / target's current Speed), rounded down. Power is equal to 150 if the result is 4 or more, 120 if 3, 80 if 2, 60 if 1, 40 if less than 1. If the target's current Speed is 0, this move's power is 40.",
+		desc: "The power of this move depends on (user's current Speed / target's current Speed), rounded down. Power is equal to 150 if the result is 3 or more, 110 if 2, 70 if 1, 30 if less than 1. If the target's current Speed is 0, this move's power is 40.",
 		shortDesc: "More power the faster the user is than the target.",
 		gen5: {
 			desc: "The power of this move depends on (user's current Speed / target's current Speed), rounded down. Power is equal to 150 if the result is 4 or more, 120 if 3, 80 if 2, 60 if 1, 40 if less than 1. If the target's current Speed is 0, it is treated as 1 instead.",
@@ -1639,7 +1654,7 @@ export const MovesText: {[k: string]: MoveText} = {
 	explosion: {
 		name: "Explosion",
 		desc: "The user faints after using this move, even if this move fails for having no target. This move is prevented from executing if any active Pokemon has the Damp Ability.",
-		shortDesc: "Hits adjacents. Uses higher of Atk & SpA. User faints.",
+		shortDesc: "Uses higher of Atk & SpA. User faints.",
 		gen4: {
 			desc: "The user faints after using this move, unless this move has no target. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
 			shortDesc: "Target's Def halved during damage. User faints.",
@@ -1656,8 +1671,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	extrasensory: {
 		name: "Extrasensory",
-		desc: "Has a 10% chance to make the target flinch.",
-		shortDesc: "10% chance to make the target flinch.",
+		desc: "Has a 20% chance to lower target's special defence by one stage.",
+		shortDesc: "20% chance to inflict SpD -1.",
 		gen3: {
 			desc: "Has a 10% chance to make the target flinch. Damage doubles if the target has used Minimize while active.",
 		},
@@ -1777,8 +1792,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	firefang: {
 		name: "Fire Fang",
-		desc: "Has a 10% chance to burn the target and a 10% chance to make it flinch.",
-		shortDesc: "10% chance to burn. 10% chance to flinch.",
+		desc: "Has a 20% chance to burn the target.",
+		shortDesc: "20% chance to burn.",
 		gen4: {
 			desc: "Has a 10% chance to burn the target and a 10% chance to make it flinch. This move can hit Pokemon with the Wonder Guard Ability regardless of their typing.",
 		},
@@ -2889,8 +2904,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	hyperfang: {
 		name: "Hyper Fang",
-		desc: "Has a 10% chance to make the target flinch.",
-		shortDesc: "10% chance to make the target flinch.",
+		desc: "Has a 10% chance to lower target defence.",
+		shortDesc: "10% chance to inflict Def -1.",
 	},
 	hyperspacefury: {
 		name: "Hyperspace Fury",
@@ -2944,8 +2959,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	icefang: {
 		name: "Ice Fang",
-		desc: "Has a 10% chance to freeze the target and a 10% chance to make it flinch.",
-		shortDesc: "10% chance to freeze. 10% chance to flinch.",
+		desc: "Has a 20% chance to freeze the target.",
+		shortDesc: "20% chance to freeze.",
 	},
 	icehammer: {
 		name: "Ice Hammer",
@@ -2964,8 +2979,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	iciclecrash: {
 		name: "Icicle Crash",
-		desc: "Has a 30% chance to make the target flinch.",
-		shortDesc: "30% chance to make the target flinch.",
+		desc: "Has a 30% chance to freeze the target.",
+		shortDesc: "30% chance to freeze.",
 	},
 	iciclespear: {
 		name: "Icicle Spear",
@@ -5335,7 +5350,7 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	sleeptalk: {
 		name: "Sleep Talk",
-		desc: "One of the user's known moves, besides this move, is selected for use at random. Fails if the user is not asleep. The selected move does not have PP deducted from it, and can currently have 0 PP. This move cannot select Assist, Beak Blast, Belch, Bide, Celebrate, Chatter, Copycat, Dynamax Cannon, Focus Punch, Hold Hands, Me First, Metronome, Mimic, Mirror Move, Nature Power, Shell Trap, Sketch, Sleep Talk, Struggle, Uproar, any two-turn move, or any Max Move.",
+		desc: "One of the user's known moves, besides this move, is selected for use at random. Fails if the user is not asleep. The selected move does not have PP deducted from it, and can currently have 0 PP. This move cannot select Rest, Assist, Beak Blast, Belch, Bide, Celebrate, Chatter, Copycat, Dynamax Cannon, Focus Punch, Hold Hands, Me First, Metronome, Mimic, Mirror Move, Nature Power, Shell Trap, Sketch, Sleep Talk, Struggle, Uproar, any two-turn move, or any Max Move.",
 		shortDesc: "User must be asleep. Uses another known move.",
 		gen7: {
 			desc: "One of the user's known moves, besides this move, is selected for use at random. Fails if the user is not asleep. The selected move does not have PP deducted from it, and can currently have 0 PP. This move cannot select Assist, Beak Blast, Belch, Bide, Celebrate, Chatter, Copycat, Focus Punch, Hold Hands, Me First, Metronome, Mimic, Mirror Move, Nature Power, Shell Trap, Sketch, Sleep Talk, Struggle, Uproar, any two-turn move, or any Z-Move.",
@@ -6278,8 +6293,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	thunderfang: {
 		name: "Thunder Fang",
-		desc: "Has a 10% chance to paralyze the target and a 10% chance to make it flinch.",
-		shortDesc: "10% chance to paralyze. 10% chance to flinch.",
+		desc: "Has a 20% chance to paralyze the target.",
+		shortDesc: "20% chance to paralyze.",
 	},
 	thunderouskick: {
 		name: "Thunderous Kick",
@@ -6415,7 +6430,7 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	triplekick: {
 		name: "Triple Kick",
-		desc: "Hits three times. Power increases to 20 for the second hit and 30 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
+		desc: "Hits three times. Power increases to 30 for the second hit and 45 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
 		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
 		gen4: {
 			desc: "Hits three times. Power increases to 20 for the second hit and 30 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the target has a Focus Sash and had full HP when this move started, it will not be knocked out regardless of the number of hits.",
@@ -6578,8 +6593,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	waterfall: {
 		name: "Waterfall",
-		desc: "Has a 20% chance to make the target flinch.",
-		shortDesc: "20% chance to make the target flinch.",
+		desc: "Has a 20% chance to lower the target's speed by 1 stage.",
+		shortDesc: "20% chance to inflict Spe -1.",
 		gen3: {
 			desc: "No additional effect.",
 			shortDesc: "No additional effect.",
@@ -6703,8 +6718,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	wildcharge: {
 		name: "Wild Charge",
-		desc: "If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
-		shortDesc: "Has 1/4 recoil.",
+		desc: "Has a 20% chance to paralyze the target.",
+		shortDesc: "20% chance to paralyze.",
 	},
 	willowisp: {
 		name: "Will-O-Wisp",
@@ -6818,8 +6833,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	zenheadbutt: {
 		name: "Zen Headbutt",
-		desc: "Has a 20% chance to make the target flinch.",
-		shortDesc: "20% chance to make the target flinch.",
+		desc: "Has a 20% chance to confuse the target.",
+		shortDesc: "20% chance to inflict confusion.",
 	},
 	zingzap: {
 		name: "Zing Zap",

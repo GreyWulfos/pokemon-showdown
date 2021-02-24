@@ -1,4 +1,16 @@
 export const ItemsText: {[k: string]: ItemText} = {
+	// new item text
+	fullmetaljacket: {
+		name: "Full Metal Jacket",
+		desc: "Holder's Def is 1.5x, but it can only select damaging moves.",
+	},
+	frostorb: {
+		name: "Frost Orb",
+		desc: "At the end of every turn, attempts to freeze the holder.",
+	},
+	
+	// end of new item text
+	
 	abomasite: {
 		name: "Abomasite",
 		desc: "If held by an Abomasnow, this item allows it to Mega Evolve in battle.",
@@ -172,7 +184,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	buggem: {
 		name: "Bug Gem",
-		desc: "Holder's first successful Bug-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Bug-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Bug-type attack will have 1.5x power. Single use.",
 		},
@@ -296,7 +308,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	darkgem: {
 		name: "Dark Gem",
-		desc: "Holder's first successful Dark-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Dark-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Dark-type attack will have 1.5x power. Single use.",
 		},
@@ -364,7 +376,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	dragongem: {
 		name: "Dragon Gem",
-		desc: "Holder's first successful Dragon-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Dragon-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Dragon-type attack will have 1.5x power. Single use.",
 		},
@@ -436,7 +448,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	electricgem: {
 		name: "Electric Gem",
-		desc: "Holder's first successful Electric-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Electric-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Electric-type attack will have 1.5x power. Single use.",
 		},
@@ -481,7 +493,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	fairygem: {
 		name: "Fairy Gem",
-		desc: "Holder's first successful Fairy-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Fairy-type attack will have 1.5x power. Single use.",
 	},
 	fairymemory: {
 		name: "Fairy Memory",
@@ -493,7 +505,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	fightinggem: {
 		name: "Fighting Gem",
-		desc: "Holder's first successful Fighting-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Fighting-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Fighting-type attack will have 1.5x power. Single use.",
 		},
@@ -518,7 +530,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	firegem: {
 		name: "Fire Gem",
-		desc: "Holder's first successful Fire-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Fire-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Fire-type attack will have 1.5x power. Single use.",
 		},
@@ -558,7 +570,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	flyinggem: {
 		name: "Flying Gem",
-		desc: "Holder's first successful Flying-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Flying-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Flying-type attack will have 1.5x power. Single use.",
 		},
@@ -643,7 +655,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	ghostgem: {
 		name: "Ghost Gem",
-		desc: "Holder's first successful Ghost-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Ghost-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Ghost-type attack will have 1.5x power. Single use.",
 		},
@@ -666,7 +678,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	grassgem: {
 		name: "Grass Gem",
-		desc: "Holder's first successful Grass-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Grass-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Grass-type attack will have 1.5x power. Single use.",
 		},
@@ -704,7 +716,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	groundgem: {
 		name: "Ground Gem",
-		desc: "Holder's first successful Ground-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Ground-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Ground-type attack will have 1.5x power. Single use.",
 		},
@@ -776,7 +788,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	icegem: {
 		name: "Ice Gem",
-		desc: "Holder's first successful Ice-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Ice-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Ice-type attack will have 1.5x power. Single use.",
 		},
@@ -1162,7 +1174,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	normalgem: {
 		name: "Normal Gem",
-		desc: "Holder's first successful Normal-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Normal-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Normal-type attack will have 1.5x power. Single use.",
 		},
@@ -1256,7 +1268,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	poisongem: {
 		name: "Poison Gem",
-		desc: "Holder's first successful Poison-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Poison-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Poison-type attack will have 1.5x power. Single use.",
 		},
@@ -1331,7 +1343,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	psychicgem: {
 		name: "Psychic Gem",
-		desc: "Holder's first successful Psychic-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Psychic-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Psychic-type attack will have 1.5x power. Single use.",
 		},
@@ -1427,7 +1439,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	rockgem: {
 		name: "Rock Gem",
-		desc: "Holder's first successful Rock-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Rock-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Rock-type attack will have 1.5x power. Single use.",
 		},
@@ -1661,7 +1673,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	steelgem: {
 		name: "Steel Gem",
-		desc: "Holder's first successful Steel-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Steel-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Steel-type attack will have 1.5x power. Single use.",
 		},
@@ -2195,7 +2207,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	watergem: {
 		name: "Water Gem",
-		desc: "Holder's first successful Water-type attack will have 1.3x power. Single use.",
+		desc: "Holder's first successful Water-type attack will have 1.5x power. Single use.",
 		gen5: {
 			desc: "Holder's first successful Water-type attack will have 1.5x power. Single use.",
 		},

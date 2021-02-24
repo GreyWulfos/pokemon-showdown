@@ -27,6 +27,41 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
+	
+	// new moves
+	
+	slothsmash: {
+		num: 827,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, mirror: 1},
+		breaksProtect: true,
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
+	frostbite: {
+		num: 828,
+		accuracy: 85,
+		basePower: 0,
+		category: "Status",
+		name: "Frostbite",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		status: 'frz',
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		zMove: {boost: {atk: 1}},
+		contestType: "Beautiful",
+	},
+	
+	// end of new moves
+	
 	"10000000voltthunderbolt": {
 		num: 719,
 		accuracy: true,
@@ -967,7 +1002,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 30,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Barrage",
 		pp: 20,
 		priority: 0,
@@ -8586,7 +8620,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Hyper Fang",
 		pp: 15,
 		priority: 0,
@@ -8798,7 +8831,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 100,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Ice Hammer",
 		pp: 10,
 		priority: 0,
@@ -9174,7 +9206,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Judgment",
 		pp: 10,
 		priority: 0,
@@ -13421,7 +13452,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return move.basePower;
 		},
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Pursuit",
 		pp: 20,
 		priority: 0,
@@ -15387,7 +15417,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		isNonstandard: "Past",
 		name: "Sketch",
 		pp: 1,
 		noPPBoosts: true,
@@ -16633,8 +16662,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (pokemon.hasItem('heavydutyboots')) return;
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				this.damage(pokemon.maxhp / 8);
 			},
 		},
 		secondary: null,
@@ -16880,7 +16908,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	stoneedge: {
 		num: 444,
 		accuracy: 80,
-		basePower: 100,
+		basePower: 110,
 		category: "Physical",
 		name: "Stone Edge",
 		pp: 5,
