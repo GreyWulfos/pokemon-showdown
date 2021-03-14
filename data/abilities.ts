@@ -4044,12 +4044,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onBeforeMovePriority: 9,
 		onBeforeMove(pokemon) {
-			if (pokemon.removeVolatile('truant')) {
-				this.add('cant', pokemon, 'ability: Truant');
-				pokemon.addVolatile('truant');
-			} else {
-				pokemon.addVolatile('truant');
+			if (pokemon.addVolatile('truant')) {
+				return true;
 			}
+			pokemon.removeVolatile('truant');
+			this.add('cant', pokemon, 'ability: Truant');
 		},
 		condition: {
 			onDisableMove(pokemon) {

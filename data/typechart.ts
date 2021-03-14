@@ -120,7 +120,7 @@ export const TypeChart: {[k: string]: TypeData} = {
 	},
 	Fighting: {
 		damageTaken: {
-			Bug: 0,
+			Bug: 2,
 			Dark: 2,
 			Dragon: 0,
 			Electric: 0,
