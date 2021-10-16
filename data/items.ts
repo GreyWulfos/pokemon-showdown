@@ -6768,7 +6768,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onSourceModifyAccuracyPriority: -2,
 		onSourceModifyAccuracy(accuracy) {
 			if (typeof accuracy === 'number') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		num: 265,

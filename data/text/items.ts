@@ -2253,7 +2253,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	widelens: {
 		name: "Wide Lens",
-		desc: "The accuracy of attacks by the holder is 1.1x.",
+		desc: "The accuracy of attacks by the holder is 1.2x.",
 	},
 	wikiberry: {
 		name: "Wiki Berry",

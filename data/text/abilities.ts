@@ -12,6 +12,31 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		
 		heal: "  [POKEMON] recovered with its Easy Pickings!",
 	},
+	windup: {
+		name: "Wind Up",
+		shortDesc: "Pokemon's moves are powered up for one turn upon switch-in.",
+		
+		start: "  [POKEMON] prepares to deliver a powerful attack!",
+	},
+	bushido: {
+		name: "Bushido",
+		shortDesc: "Pokemon's moves deal 1.5x damage when supereffective, 0.66x when resisted",
+	},
+	iceabsorb: {
+		name: "Ice Absorb",
+		desc: "This Pokemon is immune to Ice-type moves, and heals 25% of its max HP when hit by an Ice move. Additionally, it heals 1/8 of its HP per turn in Hail.",
+		shortDesc: "Pokemon heals 1/4 max HP when hit by Ice move; Ice immunity. Heals 1/8 HP / turn in hail.",
+	},
+	rockabsorb: {
+		name: "Rock Absorb",
+		desc: "This Pokemon is immune to Rock-type moves, and heals 25% of its max HP when hit by a Rock move. Additionally, it will absorb Stealth Rocks upon switching in, healing 25% of its max HP in the process.",
+		shortDesc: "Pokemon heals 1/4 max HP when hit by Rock move; Rock immunity. Absorbs Stealth Rocks.",
+	},
+	steelabsorb: {
+		name: "Steel Absorb",
+		desc: "This Pokemon is immune to Steel-type moves, and heals 25% of its max HP when hit by a Steel move. Additionally, it will absorb Spikes upon switching in, healing 25% of its max HP in the process.",
+		shortDesc: "Pokemon heals 1/4 max HP when hit by Rock move; Rock immunity. Absorbs Spikes.",
+	},
 	
 	// new abilities end
 	
@@ -477,7 +502,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	galewings: {
 		name: "Gale Wings",
-		shortDesc: "If this Pokemon is at full HP, its Flying-type moves have their priority increased by 1.",
+		shortDesc: "This Pokemon's Flying-type moves have their priority increased by 1.",
 		gen6: {
 			shortDesc: "This Pokemon's Flying-type moves have their priority increased by 1.",
 		},
@@ -574,8 +599,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	icebody: {
 		name: "Ice Body",
-		desc: "If Hail is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This Pokemon takes no damage from Hail.",
-		shortDesc: "If Hail is active, this Pokemon heals 1/16 of its max HP each turn; immunity to Hail.",
+		desc: "If Hail is active, this Pokemon restores 1/8 of its maximum HP, rounded down, at the end of each turn. This Pokemon takes no damage from Hail.",
+		shortDesc: "If Hail is active, this Pokemon heals 1/8 of its max HP each turn; immunity to Hail.",
 	},
 	iceface: {
 		name: "Ice Face",
@@ -1042,7 +1067,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	prankster: {
 		name: "Prankster",
-		shortDesc: "This Pokemon's Status moves have priority raised by 1, but Dark types are immune.",
+		shortDesc: "This Pokemon's Status moves have priority raised by 1.",
 		gen6: {
 			shortDesc: "This Pokemon's non-damaging moves have their priority increased by 1.",
 		},
@@ -1110,10 +1135,10 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	raindish: {
 		name: "Rain Dish",
-		desc: "If Rain Dance is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. If this Pokemon is holding Utility Umbrella, its HP does not get restored.",
-		shortDesc: "If Rain Dance is active, this Pokemon heals 1/16 of its max HP each turn.",
+		desc: "If Rain Dance is active, this Pokemon restores 1/8 of its maximum HP, rounded down, at the end of each turn. If this Pokemon is holding Utility Umbrella, its HP does not get restored.",
+		shortDesc: "If Rain Dance is active, this Pokemon heals 1/8 of its max HP each turn.",
 		gen7: {
-			desc: "If Rain Dance is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn.",
+			desc: "If Rain Dance is active, this Pokemon restores 1/8 of its maximum HP, rounded down, at the end of each turn.",
 		},
 	},
 	rattled: {
@@ -1137,8 +1162,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	reckless: {
 		name: "Reckless",
-		desc: "This Pokemon's attacks with recoil or crash damage have their power multiplied by 1.2. Does not affect Struggle.",
-		shortDesc: "This Pokemon's attacks with recoil or crash damage have 1.2x power; not Struggle.",
+		desc: "This Pokemon's attacks with recoil or crash damage have their power multiplied by 1.3, but deal no additional recoil damage. Does not affect Struggle.",
+		shortDesc: "Pokemon's recoil/crash attacks have 1.3x power and 0.75x recoil; not Struggle.",
 	},
 	refrigerate: {
 		name: "Refrigerate",
@@ -1318,7 +1343,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	slushrush: {
 		name: "Slush Rush",
-		shortDesc: "If Hail is active, this Pokemon's Speed is doubled.",
+		shortDesc: "If Hail is active, this Pokemon's Speed is doubled; immunity to hail.",
 	},
 	sniper: {
 		name: "Sniper",
@@ -1562,8 +1587,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	toxicboost: {
 		name: "Toxic Boost",
-		desc: "While this Pokemon is poisoned, the power of its physical attacks is multiplied by 1.5.",
-		shortDesc: "While this Pokemon is poisoned, its physical attacks have 1.5x power.",
+		desc: "While this Pokemon is poisoned, the power of its physical attacks is multiplied by 1.5. This Pokemon takes no damage when affected by poison.",
+		shortDesc: "While poisoned, physical attacks have 1.5x power. Not damaged by poison.",
 	},
 	trace: {
 		name: "Trace",
@@ -1585,7 +1610,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	truant: {
 		name: "Truant",
-		shortDesc: "This Pokemon skips every other turn instead of using a move.",
+		shortDesc: "Every other turn, this Pokemon's attacking moves are disabled.",
 
 		cant: "[POKEMON] is loafing around!",
 	},
@@ -1679,7 +1704,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	wonderguard: {
 		name: "Wonder Guard",
-		shortDesc: "This Pokemon can only be damaged by supereffective moves and indirect damage.",
+		shortDesc: "This Pokemon can only be damaged by supereffective moves and status effects.",
 		gen4: {
 			shortDesc: "This Pokemon is only damaged by Fire Fang, supereffective moves, indirect damage.",
 		},

@@ -70,7 +70,109 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Easy Pickings",
 		rating: 4,
-		num: 301
+		num: 301,
+	},
+	
+	windup: {
+		onStart(pokemon) {
+			pokemon.addVolatile('windup');
+		},
+		onResidualOrder: 20,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				pokemon.removeVolatile('windup');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'ability: Wind Up');
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower) {
+				return this.chainModify(1.5);
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Wind Up', '[silent]');
+			},
+		},
+		name: "Wind Up",
+		rating: 4,
+		num: 302,
+	},
+	
+	bushido: {
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				return this.chainModify(0.66);
+			} else if (target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Bushido",
+		rating: 3,
+		num: 303,
+	},
+	
+	rockabsorb: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Rock') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Rock Absorb');
+				}
+				return null;
+			}
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.side.removeSideCondition('stealthrock')) {
+				this.add('-sideend', pokemon.side, 'move: Stealth Rock', '[from] ability: Rock Absorb', '[of] ' + pokemon);
+				this.heal(pokemon.baseMaxhp / 4);
+			}
+		},
+		// immunity to stealth rock damage implemented in moves.ts
+		name: "Rock Absorb",
+		rating: 3.5,
+		num: 304,
+	},
+	
+	iceabsorb: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ice') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Ice Absorb');
+				}
+				return null;
+			}
+		},
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail') {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
+		name: "Ice Absorb",
+		rating: 3.5,
+		num: 304,
+	},
+	
+	steelabsorb: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Steel') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Steel Absorb');
+				}
+				return null;
+			}
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.side.removeSideCondition('spikes')) {
+				this.add('-sideend', pokemon.side, 'move: Spikes', '[from] ability: Steel Absorb', '[of] ' + pokemon);
+				this.heal(pokemon.baseMaxhp / 4);
+			}
+		},
+		// immunity to spikes damage implemented in moves.ts
+		name: "Steel Absorb",
+		rating: 3.5,
+		num: 304,
 	},
 	
 	// End of new abilities
@@ -2951,7 +3053,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.recoil || move.hasCrashDamage) {
 				this.debug('Reckless boost');
-				return this.chainModify([4915, 4096]);
+				return this.chainModify([5324, 4096]);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return this.chainModify(0.75);
 			}
 		},
 		name: "Reckless",
@@ -3427,6 +3535,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (this.field.isWeather('hail')) {
 				return this.chainModify(2);
 			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
 		},
 		name: "Slush Rush",
 		rating: 3,
@@ -3965,6 +4076,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 181,
 	},
 	toxicboost: {
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'tox' || effect.id === 'psn')) {
+				return false;
+			}
+		},
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical') {
@@ -4331,6 +4447,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 193,
 	},
 	wonderguard: {
+		onDamage(damage, target, source, effect) {
+			if (!(effect.effectType === 'Move' || effect.effectType === 'Status')) {
+				return false;
+			}
+		},
 		onTryHit(target, source, move) {
 			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
 			if (move.id === 'skydrop' && !source.volatiles['skydrop']) return;

@@ -5784,7 +5784,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return Math.floor(((255 - pokemon.happiness) * 10) / 25) || 1;
 		},
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Frustration",
 		pp: 20,
 		priority: 0,
@@ -10006,7 +10005,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	magicalleaf: {
 		num: 345,
 		accuracy: true,
-		basePower: 60,
+		basePower: 40,
 		category: "Special",
 		name: "Magical Leaf",
 		pp: 20,
@@ -11044,8 +11043,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	meteormash: {
 		num: 309,
-		accuracy: 90,
-		basePower: 90,
+		accuracy: 100,
+		basePower: 100,
 		category: "Physical",
 		name: "Meteor Mash",
 		pp: 10,
@@ -12227,17 +12226,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "Outrage",
-		pp: 10,
+		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		self: {
-			volatileStatus: 'lockedmove',
-		},
-		onAfterMove(pokemon) {
-			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
-				pokemon.removeVolatile('lockedmove');
-			}
-		},
+		recoil: [33, 100],
 		secondary: null,
 		target: "randomNormal",
 		type: "Dragon",
@@ -12863,7 +12855,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	powergem: {
 		num: 408,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Special",
 		name: "Power Gem",
 		pp: 20,
@@ -13762,14 +13754,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	razorleaf: {
 		num: 75,
-		accuracy: 95,
-		basePower: 55,
+		accuracy: 100,
+		basePower: 40,
 		category: "Physical",
 		name: "Razor Leaf",
 		pp: 25,
-		priority: 0,
+		priority: 1,
 		flags: {protect: 1, mirror: 1},
-		critRatio: 2,
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Grass",
@@ -14040,7 +14031,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return Math.floor((pokemon.happiness * 10) / 25) || 1;
 		},
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Return",
 		pp: 20,
 		priority: 0,
@@ -16382,7 +16372,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('steelabsorb')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
@@ -16662,7 +16652,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onSwitchIn(pokemon) {
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('rockabsorb')) return;
 				this.damage(pokemon.maxhp / 8);
 			},
 		},

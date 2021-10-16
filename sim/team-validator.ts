@@ -1826,7 +1826,7 @@ export class TeamValidator {
 
 		// Abstractly, what it does is construct the union of sets of all
 		// possible ways this pokemon could be obtained, and then intersect
-		// it with a the pokemon's existing set of all possible ways it could
+		// it with the pokemon's existing set of all possible ways it could
 		// be obtained. If this intersection is non-empty, the move is legal.
 
 		// set of possible sources of a pokemon with this move
@@ -1874,8 +1874,6 @@ export class TeamValidator {
 			} else if (lsetData.learnset['sketch']) {
 				if (move.noSketch || move.isZ || move.isMax) {
 					cantLearnReason = `can't be Sketched.`;
-				} else if (move.gen > 7 && !ruleTable.has('standardnatdex')) {
-					cantLearnReason = `can't be Sketched because it's a Gen 8 move and Sketch isn't available in Gen 8.`;
 				} else {
 					if (!lset) sketch = true;
 					lset = lsetData.learnset['sketch'].concat(lset || []);
