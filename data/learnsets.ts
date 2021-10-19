@@ -40903,7 +40903,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			// new moves
 			uturn: ["8M"],
 			healbell: ["8M"],
-			bravebird: ["8M"],
+		    dragonascent: ["8M"],
 		},
 		eventData: [
 			{generation: 3, level: 50, moves: ["protect", "dragonbreath", "scaryface", "fly"], pokeball: "pokeball"},
