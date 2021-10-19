@@ -5993,7 +5993,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	eternatuseternamax: {
 		isNonstandard: "Unobtainable",
-		tier: "(PU)",
+		tier: "Illegal",
 	},
 	kubfu: {
 		tier: "NFE",
