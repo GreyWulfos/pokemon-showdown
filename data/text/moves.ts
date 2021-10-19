@@ -1773,8 +1773,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	fierywrath: {
 		name: "Fiery Wrath",
-		desc: "Has a 20% chance to make the target flinch.",
-		shortDesc: "20% chance to make the foe(s) flinch.",
+		desc: "Has a 30% chance to burn the target.",
+		shortDesc: "30% chance to burn foe(s).",
 	},
 	finalgambit: {
 		name: "Final Gambit",
@@ -4847,8 +4847,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	rockslide: {
 		name: "Rock Slide",
-		desc: "Has a 30% chance to make the target flinch.",
-		shortDesc: "30% chance to make the foe(s) flinch.",
+		desc: "Has a 30% chance to lower target's speed by one stage.",
+		shortDesc: "30% chance to inflice Spe -1.",
 		gen1: {
 			desc: "No additional effect.",
 			shortDesc: "No additional effect.",
@@ -5707,8 +5707,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	steamroller: {
 		name: "Steamroller",
-		desc: "Has a 30% chance to make the target flinch. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
-		shortDesc: "30% chance to make the target flinch.",
+		desc: "Has a 100% chance to lower target's speed. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
+		shortDesc: "100% chance to inflict Spe -1.",
 		gen5: {
 			desc: "Has a 30% chance to make the target flinch. Damage doubles if the target has used Minimize while active.",
 		},
@@ -6476,8 +6476,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	twister: {
 		name: "Twister",
-		desc: "Has a 20% chance to make the target flinch. Power doubles if the target is using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop.",
-		shortDesc: "20% chance to make the foe(s) flinch.",
+		desc: "Has a 20% chance to confuse the target. Power doubles if the target is using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop.",
+		shortDesc: "20% chance to make the foe(s) confused.h",
 		gen4: {
 			desc: "Has a 20% chance to make the target flinch. Power doubles if the target is using Bounce or Fly.",
 		},

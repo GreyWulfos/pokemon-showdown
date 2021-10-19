@@ -5705,6 +5705,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wildcharge: ["8M", "7M", "6M", "5M"],
 			workup: ["8M", "7M", "5M"],
 			zapcannon: ["7V"],
+
+            // new moves
+            moonblast: ["8T"],
+            slackoff: ["8T"],
 		},
 		encounters: [
 			{generation: 1, level: 22},
@@ -11139,6 +11143,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			
 			// new moves
 			agility: ["8M"],
+            flamethrower: ["8M"],
 		},
 		eventData: [
 			{generation: 3, level: 30, moves: ["refresh", "doubleedge", "raindance", "thunder"]},
@@ -18476,6 +18481,16 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wish: ["8E", "7E", "6E", "5E", "4E", "3E"],
 			workup: ["8M", "7M", "5M"],
 			yawn: ["8E", "7E", "6E", "5E", "4E"],
+
+            // new moves
+            buzzybuzz: ["8M"],
+            sparklyswirl: ["8M"],
+            bouncybubble: ["8M"],
+            sizzlyslide: ["8M"],
+            baddybad: ["8M"],
+            sappyseed: ["8M"],
+            glitzyglow: ["8M"],
+            freezyfrost: ["8M"],
 		},
 		eventData: [
 			{generation: 4, level: 10, gender: "F", nature: "Lonely", abilities: ["adaptability"], moves: ["covet", "bite", "helpinghand", "attract"], pokeball: "cherishball"},
@@ -40788,6 +40803,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["7M", "6M", "5M", "4M", "3M"],
 			twister: ["4T"],
 			zenheadbutt: ["8M", "8L39", "7T", "7L35", "6T", "6L35", "5T", "5L37", "4T", "4L37"],
+
+            // new moves
+            bodypress: ["8T"],
 		},
 		encounters: [
 			{generation: 7, level: 15},
@@ -46633,6 +46651,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			
 			// new moves
 			coil: ["8M"],
+            gunkshot: ["8M"],
 		},
 		encounters: [
 			{generation: 4, level: 22, pokeball: "safariball"},
