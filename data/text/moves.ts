@@ -1558,8 +1558,7 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	ember: {
 		name: "Ember",
-		desc: "Has a 10% chance to burn the target.",
-		shortDesc: "10% chance to burn the target.",
+		shortDesc: "Usually moves first.",
 	},
 	encore: {
 		name: "Encore",
