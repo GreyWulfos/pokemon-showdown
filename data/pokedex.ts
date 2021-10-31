@@ -4199,7 +4199,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 33,
 		evos: ["Mamoswine"],
 		eggGroups: ["Field"],
-	}
+	},
 	corsola: {
 		num: 222,
 		name: "Corsola",
