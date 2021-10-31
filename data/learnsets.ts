@@ -55437,6 +55437,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			trickroom: ["8M", "7M", "6M", "5M"],
 			wonderroom: ["8M", "8L64", "7T", "7L59", "6T", "6L59", "5T", "5L59"],
 			zenheadbutt: ["8M", "7T", "6T", "5T"],
+
+            // new moves
+            icebeam: ["8M"],
+            flamethrower: ["8M"],
 		},
 		encounters: [
 			{generation: 5, level: 34},
