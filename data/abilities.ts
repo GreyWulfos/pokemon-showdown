@@ -243,7 +243,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			if (boosted) {
 				this.debug('Analytic boost');
-				return this.chainModify([5325, 4096]);
+				return this.chainModify(1.5);
 			}
 		},
 		name: "Analytic",
