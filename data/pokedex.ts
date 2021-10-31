@@ -4199,7 +4199,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 33,
 		evos: ["Mamoswine"],
 		eggGroups: ["Field"],
-	},
+	}
 	corsola: {
 		num: 222,
 		name: "Corsola",
@@ -10166,7 +10166,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Escavalier",
 		types: ["Bug", "Steel"],
 		baseStats: {hp: 70, atk: 135, def: 105, spa: 60, spd: 105, spe: 20},
-		abilities: {0: "Swarm", 1: "Shell Armor", H: "Overcoat"},
+		abilities: {0: "Analytic", 1: "Shell Armor", H: "Overcoat"},
 		heightm: 1,
 		weightkg: 33,
 		color: "Gray",
