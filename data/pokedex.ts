@@ -4190,7 +4190,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 221,
 		name: "Piloswine",
 		types: ["Ice", "Ground"],
-		baseStats: {hp: 110, atk: 100, def: 80, spa: 60, spd: 60, spe: 50},
+		baseStats: {hp: 100, atk: 100, def: 80, spa: 60, spd: 60, spe: 50},
 		abilities: {0: "Fur Coat", 1: "Snow Cloak", H: "Thick Fat"},
 		heightm: 1.1,
 		weightkg: 55.8,
@@ -4199,7 +4199,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 33,
 		evos: ["Mamoswine"],
 		eggGroups: ["Field"],
-	}
+	},
 	corsola: {
 		num: 222,
 		name: "Corsola",
