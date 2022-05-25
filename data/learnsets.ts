@@ -49099,9 +49099,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wringout: ["7L50", "6L50", "6S1", "5L50"],
 			
 			// new moves
-			dragonpulse: ["8M"],
-			dracometeor: ["8M"],
-			dragontail: ["8M"],
+            mysticalfire: ["8M"],
 		},
 		eventData: [
 			{generation: 5, level: 100, gender: "M", moves: ["leafstorm", "substitute", "gigadrain", "leechseed"], pokeball: "cherishball"},
