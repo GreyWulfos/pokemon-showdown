@@ -4626,6 +4626,9 @@ export const Items: {[itemid: string]: ItemData} = {
 		fling: {
 			basePower: 60,
 		},
+		onTakeItem(item, source) {
+			return (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet');
+		},
 		onDamagingHitOrder: 2,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
