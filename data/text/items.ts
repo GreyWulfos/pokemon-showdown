@@ -1458,7 +1458,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	rockyhelmet: {
 		name: "Rocky Helmet",
-		desc: "On contact, attackers lose 1/6 of max HP. Cannot be removed by Knock Off/Covet/Thief.",
+		desc: "On contact, attackers lose 1/6 max HP. Can't be removed by Knock Off/Covet/Thief.",
 
 		damage: "  [POKEMON] was hurt by the Rocky Helmet!",
 	},

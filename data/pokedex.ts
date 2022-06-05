@@ -986,7 +986,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Clefable",
 		types: ["Fairy"],
 		genderRatio: {M: 0.25, F: 0.75},
-		baseStats: {hp: 95, atk: 90, def: 73, spa: 95, spd: 90, spe: 60},
+		baseStats: {hp: 95, atk: 70, def: 73, spa: 95, spd: 90, spe: 60},
 		abilities: {0: "Magic Guard", H: "Unaware"},
 		heightm: 1.3,
 		weightkg: 40,
