@@ -20215,6 +20215,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			
 			// new moves
 			explosion: ["8M"],
+            slackoff: ["8M"],
 		},
 		eventData: [
 			{generation: 3, level: 43, moves: ["refresh", "fissure", "curse", "bodyslam"]},
