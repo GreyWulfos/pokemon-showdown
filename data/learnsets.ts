@@ -43978,6 +43978,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			thunderbolt: ["7M", "6M", "5M", "4M"],
 			torment: ["7M", "6M", "5M", "4M"],
 			toxic: ["7M", "6M", "5M", "4M"],
+
+            // new moves
+            bodypress: ["8M"],
 		},
 	},
 	burmy: {
