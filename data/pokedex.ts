@@ -7171,7 +7171,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	bastiodon: {
 		num: 411,
 		name: "Bastiodon",
-		types: ["Rock", "Steel"],
+		types: ["Ground", "Steel"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 60, atk: 52, def: 168, spa: 47, spd: 138, spe: 30},
 		abilities: {0: "Sturdy", H: "Soundproof"},

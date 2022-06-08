@@ -43989,6 +43989,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			snore: ["7T", "6T", "5T", "5D", "4T"],
 			stringshot: ["4T"],
 			tackle: ["7L10", "6L10", "5L10", "4L10"],
+
+            //new moves
+            bodypress: ["8M"],
 		},
 	},
 	wormadam: {
