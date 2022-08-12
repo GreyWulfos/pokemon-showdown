@@ -57948,7 +57948,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			knockoff: ["7T", "6T", "5T"],
 			laserfocus: ["7T"],
 			leechlife: ["8M", "7M", "6L1", "5L1"],
-            , "Dark"mefirst: ["7L28", "6L28", "5L28"],
+            mefirst: ["7L28", "6L28", "5L28"],
 			megadrain: ["8L12", "7L20", "6L20", "5L20"],
 			mudshot: ["8M"],
 			powerswap: ["8M", "8L32", "7L1", "6L1", "5L52"],
