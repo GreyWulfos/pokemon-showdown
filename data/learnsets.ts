@@ -56998,6 +56998,13 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			voltswitch: ["7M", "6M", "5M"],
 			wildcharge: ["7M", "6M", "5M"],
 			zapcannon: ["7L1", "6L1"],
+
+            // new moves
+            sludgewave: ["8M"],
+            sludgebomb: ["8M"],
+            poisonjab: ["8M"],
+            venoshock: ["8M"],
+            paraboliccharge: ["8M"],
 		},
 	},
 	elgyem: {
@@ -57840,6 +57847,12 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["7M", "6M", "5M"],
 			tripleaxel: ["8T"],
 			waterpulse: ["7T", "6T"],
+
+            // new moves
+            frostbite: ["8M"],
+            powergem: ["8M"],
+            dazzlinggleam: ["8M"],
+            thunderbolt: ["8M"],
 		},
 	},
 	shelmet: {
@@ -57935,7 +57948,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			knockoff: ["7T", "6T", "5T"],
 			laserfocus: ["7T"],
 			leechlife: ["8M", "7M", "6L1", "5L1"],
-			mefirst: ["7L28", "6L28", "5L28"],
+            , "Dark"mefirst: ["7L28", "6L28", "5L28"],
 			megadrain: ["8L12", "7L20", "6L20", "5L20"],
 			mudshot: ["8M"],
 			powerswap: ["8M", "8L32", "7L1", "6L1", "5L52"],
@@ -57966,6 +57979,12 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			venoshock: ["8M", "7M", "6M", "5M"],
 			watershuriken: ["8L1", "7L1", "6L1"],
 			yawn: ["8L1"],
+
+            // new moves
+            darkpulse: ["8M"],
+            aurasphere: ["8M"],
+            flamethrower: ["8M"],
+            nastyplot: ["8M"],
 		},
 	},
 	stunfisk: {
