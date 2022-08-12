@@ -1562,8 +1562,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	thickfat: {
 		name: "Thick Fat",
-		desc: "If a Pokemon uses a Fire- or Ice-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon.",
-		shortDesc: "Fire/Ice-type moves against this Pokemon deal damage with a halved attacking stat.",
+		desc: "If a Pokemon uses a Fire- or Ice-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon. Gives an immunity to the damage dealt by hail.",
+		shortDesc: "Fire/Ice-type moves deal 1/2 damage. Hail immunity.",
 		gen4: {
 			shortDesc: "The power of Fire- and Ice-type attacks against this Pokemon is halved.",
 		},
