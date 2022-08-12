@@ -4030,6 +4030,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
 		name: "Thick Fat",
 		rating: 3.5,
 		num: 47,
