@@ -321,8 +321,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			pokemon.removeVolatile('truant');
 			return null;
 		},
-		onStart(pokemon) {
-			this.add('-mustrecharge', pokemon);
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+			    source.removeVolatile('mustrecharge');	
+			}
 		},
 		onLockMove: 'recharge',
 	},
