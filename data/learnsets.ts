@@ -47750,6 +47750,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["7M", "6M", "5M", "4M"],
 			trickroom: ["8M", "7M", "6M", "5M", "4M"],
 			twister: ["4T"],
+
+            // new moves
+            recover: ["8M"],
+            calmmind: ["8M"],
 		},
 		eventData: [
 			{generation: 4, level: 47, shiny: 1, moves: ["metalclaw", "ancientpower", "dragonclaw", "roaroftime"]},
@@ -47860,6 +47864,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			twister: ["4T"],
 			waterpulse: ["8L1", "7T", "7L6", "6T", "6L6", "5L6", "4M", "4L6", "4S0"],
 			whirlpool: ["8M", "4M"],
+
+            // new moves
+            recover: ["8M"],
+            calmmind: ["8M"],
 		},
 		eventData: [
 			{generation: 4, level: 47, shiny: 1, moves: ["waterpulse", "ancientpower", "dragonclaw", "spacialrend"]},
@@ -48161,6 +48169,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["7M", "6M", "5M", "4M"],
 			twister: ["4T"],
 			willowisp: ["8M", "7M", "6M", "5M", "4M"],
+
+            // new moves
+            recover: ["8M"],
+            glare: ["8M"],
 		},
 		eventData: [
 			{generation: 4, level: 70, shiny: 1, moves: ["shadowforce", "healblock", "earthpower", "slash"]},

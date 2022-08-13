@@ -14137,7 +14137,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	roaroftime: {
 		num: 459,
 		accuracy: 90,
-		basePower: 150,
+		basePower: 180,
 		category: "Special",
 		name: "Roar of Time",
 		pp: 5,
@@ -14985,23 +14985,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Shadow Force",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, charge: 1, mirror: 1},
+		flags: {contact: 1, mirror: 1},
+        recoil: [1, 4],
 		breaksProtect: true,
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
-		},
-		condition: {
-			duration: 2,
-			onInvulnerability: false,
-		},
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
@@ -16183,7 +16169,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		critRatio: 2,
+		willCrit: true,
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
