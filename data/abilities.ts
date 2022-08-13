@@ -2429,7 +2429,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	neuroforce: {
 		onModifyDamage(damage, source, target, move) {
 			if (move && target.getMoveHitData(move).typeMod > 0) {
-				return this.chainModify([5120, 4096]);
+				return this.chainModify(1.5);
 			}
 		},
 		name: "Neuroforce",
