@@ -5275,7 +5275,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		condition: {
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.getActiveMove(moveSlot.move).category !== 'Status') {
+					const move = this.dex.moves.get(moveSlot.id);
+					if (move.category !== 'Status') {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
