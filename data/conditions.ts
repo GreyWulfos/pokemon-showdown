@@ -340,8 +340,10 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			pokemon.removeVolatile('truant');
 			return null;
 		},
-		onStart(pokemon) {
-			this.add('-mustrecharge', pokemon);
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+			    source.removeVolatile('mustrecharge');	
+			}
 		},
 		onLockMove: 'recharge',
 	},
@@ -436,12 +438,12 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 	raindance: {
 		name: 'RainDance',
 		effectType: 'Weather',
-		duration: 7,
+		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('damprock')) {
-				return 10;
+				return 8;
 			}
-			return 7;
+			return 5;
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;
@@ -506,12 +508,12 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 	sunnyday: {
 		name: 'SunnyDay',
 		effectType: 'Weather',
-		duration: 7,
+		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('heatrock')) {
-				return 10;
+				return 8;
 			}
-			return 7;
+			return 5;
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (move.id === 'hydrosteam' && !attacker.hasItem('utilityumbrella')) {
@@ -588,12 +590,12 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 	sandstorm: {
 		name: 'Sandstorm',
 		effectType: 'Weather',
-		duration: 7,
+		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('smoothrock')) {
-				return 10;
+				return 8;
 			}
-			return 7;
+			return 5;
 		},
 		// This should be applied directly to the stat before any of the other modifiers are chained
 		// So we give it increased priority.
@@ -626,12 +628,12 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 	hail: {
 		name: 'Hail',
 		effectType: 'Weather',
-		duration: 7,
+		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('icyrock')) {
-				return 10;
+				return 8;
 			}
-			return 7;
+			return 5;
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;

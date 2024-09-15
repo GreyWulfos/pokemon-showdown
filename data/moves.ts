@@ -5282,7 +5282,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onBasePower(basePower, pokemon) {
-			if (pokemon.status && pokemon.status !== 'slp') {
+			if (pokemon.status) {
 				return this.chainModify(2);
 			}
 		},
@@ -13815,28 +13815,14 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	phantomforce: {
 		num: 566,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 100,
 		category: "Physical",
 		name: "Phantom Force",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, charge: 1, mirror: 1, metronome: 1, nosleeptalk: 1, noassist: 1, failinstruct: 1},
+		flags: {contact: 1, mirror: 1},
+        recoil: [33, 100],
 		breaksProtect: true,
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
-		},
-		condition: {
-			duration: 2,
-			onInvulnerability: false,
-		},
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
@@ -15755,7 +15741,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	roaroftime: {
 		num: 459,
 		accuracy: 90,
-		basePower: 150,
+		basePower: 180,
 		category: "Special",
 		name: "Roar of Time",
 		pp: 5,
@@ -16697,23 +16683,9 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		name: "Shadow Force",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, charge: 1, mirror: 1, metronome: 1, nosleeptalk: 1, noassist: 1, failinstruct: 1},
+		flags: {contact: 1, mirror: 1},
+        recoil: [1, 4],
 		breaksProtect: true,
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
-		},
-		condition: {
-			duration: 2,
-			onInvulnerability: false,
-		},
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
@@ -18022,8 +17994,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		name: "Spacial Rend",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		critRatio: 2,
+		flags: {protect: 1, mirror: 1},
+		willCrit: true,
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
