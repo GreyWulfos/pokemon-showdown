@@ -9,6 +9,7 @@
 
 import {exec, ExecException, ExecOptions} from 'child_process';
 import {crashlogger, FS} from "../lib";
+import * as pathModule from 'path';
 
 const MONITOR_CLEAN_TIMEOUT = 2 * 60 * 60 * 1000;
 
@@ -68,22 +69,22 @@ export const Monitor = new class {
 	updateServerLock = false;
 	cleanInterval: NodeJS.Timeout | null = null;
 	/**
-	 * Inappropriate userid : number of times the name has been forcerenamed
+	 * Inappropriate userid : has the user logged in since the FR
 	 */
-	readonly forceRenames = new Map<ID, number>();
+	readonly forceRenames = new Map<ID, boolean>();
 
 	/*********************************************************
 	 * Logging
 	 *********************************************************/
-	crashlog(error: Error, source = 'The main process', details: AnyObject | null = null) {
-		if (!error) error = {} as any;
+	crashlog(err: any, source = 'The main process', details: AnyObject | null = null) {
+		const error = (err || {}) as Error;
 		if ((error.stack || '').startsWith('@!!@')) {
 			try {
 				const stack = (error.stack || '');
 				const nlIndex = stack.indexOf('\n');
 				[error.name, error.message, source, details] = JSON.parse(stack.slice(4, nlIndex));
 				error.stack = stack.slice(nlIndex + 1);
-			} catch (e) {}
+			} catch {}
 		}
 		const crashType = crashlogger(error, source, details);
 		Rooms.global.reportCrash(error, source);
@@ -91,6 +92,13 @@ export const Monitor = new class {
 			Config.autolockdown = false;
 			Rooms.global.startLockdown(error);
 		}
+	}
+
+	logPath(path: string) {
+		if (Config.logsdir) {
+			return FS(pathModule.join(Config.logsdir, path));
+		}
+		return FS(pathModule.join('logs', path));
 	}
 
 	log(text: string) {
@@ -206,7 +214,7 @@ export const Monitor = new class {
 		if (Config.noipchecks || Config.nothrottle) return false;
 		const count = this.battlePreps.increment(ip, 3 * 60 * 1000)[0];
 		if (count <= 12) return false;
-		if (count < 120 && Punishments.sharedIps.has(ip)) return false;
+		if (count < 120 && Punishments.isSharedIp(ip)) return false;
 		connection.popup('Due to high load, you are limited to 12 battles and team validations every 3 minutes.');
 		return true;
 	}
@@ -236,7 +244,7 @@ export const Monitor = new class {
 		if (Config.noipchecks || Config.nothrottle) return false;
 		const [count] = this.netRequests.increment(ip, 1 * 60 * 1000);
 		if (count <= 10) return false;
-		if (count < 120 && Punishments.sharedIps.has(ip)) return false;
+		if (count < 120 && Punishments.isSharedIp(ip)) return false;
 		return true;
 	}
 
@@ -246,7 +254,7 @@ export const Monitor = new class {
 	countTickets(ip: string) {
 		if (Config.noipchecks || Config.nothrottle) return false;
 		const count = this.tickets.increment(ip, 60 * 60 * 1000)[0];
-		if (Punishments.sharedIps.has(ip)) {
+		if (Punishments.isSharedIp(ip)) {
 			return count >= 20;
 		} else {
 			return count >= 5;
@@ -278,7 +286,7 @@ export const Monitor = new class {
 		for (const i in this.networkUse) {
 			buf += `${this.networkUse[i]}\t${this.networkCount[i]}\t${i}\n`;
 		}
-		void FS('logs/networkuse.tsv').write(buf);
+		void Monitor.logPath('networkuse.tsv').write(buf);
 	}
 
 	clearNetworkUse() {
@@ -333,8 +341,8 @@ export const Monitor = new class {
 	async version() {
 		let hash;
 		try {
-			await FS('.git/index').copyFile('logs/.gitindex');
-			const index = FS('logs/.gitindex');
+			await FS('.git/index').copyFile(Monitor.logPath('.gitindex').path);
+			const index = Monitor.logPath('.gitindex');
 			const options = {
 				cwd: __dirname,
 				env: {GIT_INDEX_FILE: index.path},
@@ -349,7 +357,7 @@ export const Monitor = new class {
 
 			await this.sh(`git reset`, options);
 			await index.unlinkIfExists();
-		} catch (err) {}
+		} catch {}
 		return hash;
 	}
 };

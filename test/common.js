@@ -3,7 +3,7 @@
 const path = require('path');
 const fs = require('fs');
 const assert = require('./assert');
-const Sim = require('./../.sim-dist');
+const Sim = require('./../dist/sim');
 const Dex = Sim.Dex;
 
 const cache = new Map();
@@ -23,7 +23,7 @@ class TestTools {
 		this.currentMod = mod;
 		this.dex = Dex.mod(mod);
 
-		this.modPrefix = this.dex.isBase ? `[gen8] ` : `[${mod}] `;
+		this.modPrefix = this.dex.isBase ? `[gen9] ` : `[${mod}] `;
 	}
 
 	mod(mod) {
@@ -42,7 +42,7 @@ class TestTools {
 	}
 
 	getFormat(options) {
-		if (options.formatid) return Dex.getFormat(options.formatid);
+		if (options.formatid) return Dex.formats.get(options.formatid);
 
 		const gameType = Dex.toID(options.gameType || 'singles');
 		const customRules = [
@@ -58,14 +58,21 @@ class TestTools {
 		const customRulesID = customRules.length ? `@@@${customRules.join(',')}` : ``;
 
 		let basicFormat = this.currentMod === 'base' && gameType === 'singles' ? 'Anything Goes' : 'Custom Game';
+		let modPrefix = this.modPrefix;
 		if (this.currentMod === 'gen1stadium') basicFormat = 'OU';
+		if (gameType === 'multi') {
+			basicFormat = 'randombattle';
+			modPrefix = `[gen8] `; // Remove when multis support Gen 9
+		}
+		// Re-integrate to the above if statement when gen 9 ffa randbats is added
+		if (gameType === 'freeforall') basicFormat = '';
 		const gameTypePrefix = gameType === 'singles' ? '' : capitalize(gameType) + ' ';
-		const formatName = `${this.modPrefix}${gameTypePrefix}${basicFormat}${customRulesID}`;
+		const formatName = `${modPrefix}${gameTypePrefix}${basicFormat}${customRulesID}`;
 
 		let format = formatsCache.get(formatName);
 		if (format) return format;
 
-		format = Dex.getFormat(formatName);
+		format = Dex.formats.get(formatName);
 		if (!format.exists) throw new Error(`Unidentified format: ${formatName}`);
 
 		formatsCache.set(formatName, format);
@@ -88,6 +95,8 @@ class TestTools {
 		const format = this.getFormat(options);
 
 		const battleOptions = {
+			debug: true,
+			forceRandomChance: null || options.forceRandomChance,
 			format: format,
 			// If a seed for the pseudo-random number generator is not provided,
 			// a default seed (guaranteed to be the same across test executions)
@@ -129,8 +138,16 @@ class TestTools {
 			out.end();
 		});
 	}
+	hasModule(mod) {
+		try {
+			require(mod);
+			return true;
+		} catch {
+			return false;
+		}
+	}
 }
 
 const common = exports = module.exports = new TestTools();
 cache.set('base', common);
-cache.set('gen8', common);
+cache.set('gen9', common);

@@ -13,16 +13,18 @@ import * as net from 'net';
 import * as path from 'path';
 import * as repl from 'repl';
 import {crashlogger} from './crashlogger';
+import {FS} from './fs';
+declare const Config: any;
 
 export const Repl = new class {
 	/**
 	 * Contains the pathnames of all active REPL sockets.
 	 */
-	socketPathnames: Set<string> = new Set();
+	socketPathnames = new Set<string>();
 
 	listenersSetup = false;
 
-	setupListeners() {
+	setupListeners(filename: string) {
 		if (Repl.listenersSetup) return;
 		Repl.listenersSetup = true;
 		// Clean up REPL sockets and child processes on forced exit.
@@ -30,7 +32,7 @@ export const Repl = new class {
 			for (const s of Repl.socketPathnames) {
 				try {
 					fs.unlinkSync(s);
-				} catch (e) {}
+				} catch {}
 			}
 			if (code === 129 || code === 130) {
 				process.exitCode = 0;
@@ -42,25 +44,40 @@ export const Repl = new class {
 		if (!process.listeners('SIGINT').length) {
 			process.once('SIGINT', () => process.exit(128 + 2));
 		}
+		(global as any).heapdump = (targetPath?: string) => {
+			if (!targetPath) targetPath = `${filename}-${new Date().toISOString()}`;
+			let handler;
+			try {
+				handler = require('node-oom-heapdump')();
+			} catch (e: any) {
+				if (e.code !== 'MODULE_NOT_FOUND') throw e;
+				throw new Error(`node-oom-heapdump is not installed. Run \`npm install --no-save node-oom-heapdump\` and try again.`);
+			}
+			return handler.createHeapSnapshot(targetPath);
+		};
 	}
 
 	/**
-	 * Starts a REPL server, using a UNIX socket for IPC. The eval function
-	 * parametre is passed in because there is no other way to access a file's
-	 * non-global context.
+	 * Delete old sockets in the REPL directory (presumably from a crashed
+	 * previous launch of PS).
+	 *
+	 * Does everything synchronously, so that the directory is guaranteed
+	 * clean and ready for new REPL sockets by the time this function returns.
 	 */
-	start(filename: string, evalFunction: (input: string) => any) {
-		if ('repl' in Config && !Config.repl) return;
+	cleanup() {
+		const config = typeof Config !== 'undefined' ? Config : {};
+		if (!config.repl) return;
 
-		// TODO: Windows does support the REPL when using named pipes. For now,
-		// this only supports UNIX sockets.
-
-		Repl.setupListeners();
-
-		if (filename === 'app') {
-			// Clean up old REPL sockets.
-			const directory = path.dirname(path.resolve(__dirname, '..', Config.replsocketprefix || 'logs/repl', 'app'));
-			for (const file of fs.readdirSync(directory)) {
+		// Clean up old REPL sockets.
+		const directory = path.dirname(
+			path.resolve(FS.ROOT_PATH, config.replsocketprefix || 'logs/repl', 'app')
+		);
+		let files;
+		try {
+			files = fs.readdirSync(directory);
+		} catch {}
+		if (files) {
+			for (const file of files) {
 				const pathname = path.resolve(directory, file);
 				const stat = fs.statSync(pathname);
 				if (!stat.isSocket()) continue;
@@ -69,10 +86,25 @@ export const Repl = new class {
 					socket.end();
 					socket.destroy();
 				}).on('error', () => {
-					fs.unlink(pathname, () => {});
+					fs.unlinkSync(pathname);
 				});
 			}
 		}
+	}
+
+	/**
+	 * Starts a REPL server, using a UNIX socket for IPC. The eval function
+	 * parametre is passed in because there is no other way to access a file's
+	 * non-global context.
+	 */
+	start(filename: string, evalFunction: (input: string) => any) {
+		const config = typeof Config !== 'undefined' ? Config : {};
+		if (!config.repl) return;
+
+		// TODO: Windows does support the REPL when using named pipes. For now,
+		// this only supports UNIX sockets.
+
+		Repl.setupListeners(filename);
 
 		const server = net.createServer(socket => {
 			repl.start({
@@ -81,7 +113,7 @@ export const Repl = new class {
 				eval(cmd, context, unusedFilename, callback) {
 					try {
 						return callback(null, evalFunction(cmd));
-					} catch (e) {
+					} catch (e: any) {
 						return callback(e, undefined);
 					}
 				},
@@ -89,7 +121,7 @@ export const Repl = new class {
 			socket.on('error', () => socket.destroy());
 		});
 
-		const pathname = path.resolve(__dirname, '..', Config.replsocketprefix || 'logs/repl', filename);
+		const pathname = path.resolve(FS.ROOT_PATH, Config.replsocketprefix || 'logs/repl', filename);
 		try {
 			server.listen(pathname, () => {
 				fs.chmodSync(pathname, Config.replsocketmode || 0o600);

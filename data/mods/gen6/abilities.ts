@@ -1,8 +1,8 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	aerilate: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.aerilateBoosted) return this.chainModify([5325, 4096]);
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([5325, 4096]);
 		},
 		rating: 4.5,
 	},
@@ -50,30 +50,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
-			if (move.id !== 'struggle' && this.dex.getMove(move.id).type !== 'Normal') {
+			if (move.id !== 'struggle' && this.dex.moves.get(move.id).type !== 'Normal') {
 				move.type = 'Normal';
 			}
 		},
+		onBasePower() {},
 		rating: -1,
 	},
 	parentalbond: {
 		inherit: true,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.5);
-		},
+		// Damage modifier implemented in BattleActions#modifyDamage()
 		rating: 5,
 	},
 	pixilate: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.pixilateBoosted) return this.chainModify([5325, 4096]);
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([5325, 4096]);
 		},
 		rating: 4.5,
 	},
 	refrigerate: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.refrigerateBoosted) return this.chainModify([5325, 4096]);
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([5325, 4096]);
 		},
 		rating: 4.5,
 	},
@@ -99,11 +98,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	symbiosis: {
 		inherit: true,
 		onAllyAfterUseItem(item, pokemon) {
-			const source = this.effectData.target;
+			const source = this.effectState.target;
 			const myItem = source.takeItem();
 			if (!myItem) return;
 			if (
-				!this.singleEvent('TakeItem', myItem, source.itemData, pokemon, source, this.effect, myItem) ||
+				!this.singleEvent('TakeItem', myItem, source.itemState, pokemon, source, this.effect, myItem) ||
 				!pokemon.setItem(myItem)
 			) {
 				source.item = myItem.id;
@@ -123,6 +122,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	zenmode: {
 		inherit: true,
-		isPermanent: false,
+		flags: {failroleplay: 1, noentrain: 1, notrace: 1},
 	},
 };

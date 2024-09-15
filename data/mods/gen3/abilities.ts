@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	cutecharm: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
@@ -51,12 +51,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	forecast: {
+		inherit: true,
+		flags: {},
+	},
+	hustle: {
+		inherit: true,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			const physicalTypes = ['Normal', 'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel'];
+			if (physicalTypes.includes(move.type) && typeof accuracy === 'number') {
+				return this.chainModify([3277, 4096]);
+			}
+		},
+	},
 	intimidate: {
 		inherit: true,
 		onStart(pokemon) {
 			let activated = false;
-			for (const target of pokemon.side.foe.active) {
-				if (target && this.isAdjacent(target, pokemon) && !target.volatiles['substitute']) {
+			for (const target of pokemon.adjacentFoes()) {
+				if (!target.volatiles['substitute']) {
 					activated = true;
 					break;
 				}
@@ -68,9 +81,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			this.add('-ability', pokemon, 'Intimidate', 'boost');
 
-			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
-
+			for (const target of pokemon.adjacentFoes()) {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
@@ -81,11 +92,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	lightningrod: {
 		onFoeRedirectTarget(target, source, source2, move) {
-			if (move.type !== 'Electric') return;
-			if (this.validTarget(this.effectData.target, source, move.target)) {
-				return this.effectData.target;
+			// don't count Hidden Power as Electric-type
+			if (this.dex.moves.get(move.id).type !== 'Electric') return;
+			if (this.validTarget(this.effectState.target, source, move.target)) {
+				return this.effectState.target;
 			}
 		},
+		flags: {breakable: 1},
 		name: "Lightning Rod",
 		rating: 0,
 		num: 32,
@@ -126,6 +139,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.addSplit(pokemon.side.id, ['-ability', pokemon, 'Pressure', '[silent]']);
 		},
 	},
+	raindish: {
+		inherit: true,
+		onWeather() {},
+		onResidualOrder: 10,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+	},
 	roughskin: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
@@ -152,19 +176,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	trace: {
 		inherit: true,
-		onUpdate(pokemon) {
+		onUpdate() {},
+		onStart(pokemon) {
 			if (!pokemon.isStarted) return;
-			const target = pokemon.side.foe.randomActive();
+			const target = pokemon.side.randomFoe();
 			if (!target || target.fainted) return;
 			const ability = target.getAbility();
-			const bannedAbilities = ['forecast', 'multitype', 'trace'];
-			if (bannedAbilities.includes(target.ability)) {
-				return;
-			}
 			if (pokemon.setAbility(ability)) {
 				this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
 			}
 		},
+		flags: {},
 	},
 	truant: {
 		inherit: true,
