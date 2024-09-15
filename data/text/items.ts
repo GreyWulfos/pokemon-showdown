@@ -1534,11 +1534,7 @@ export const ItemsText: {[id: IDEntry]: ItemText} = {
 	},
 	rockyhelmet: {
 		name: "Rocky Helmet",
-<<<<<<< HEAD
 		shortDesc: "If holder is hit by a contact move, the attacker loses 1/6 of its max HP.",
-=======
-		desc: "On contact, attackers lose 1/6 max HP. Can't be removed by Knock Off/Covet/Thief.",
->>>>>>> c2d5c3eceb09b28a53865e10c2f5d54e2be55fd3
 
 		damage: "  [POKEMON] was hurt by the Rocky Helmet!",
 	},
